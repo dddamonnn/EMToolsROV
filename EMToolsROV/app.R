@@ -15,6 +15,7 @@ library(janitor)
 library(leaflet)
 library(plotly)
 
+#load local life history sheet
 life.history<- read_csv("Fish Life History.csv", col_names = TRUE) %>%
   mutate(a=as.numeric(a)) %>%
   mutate(b=as.numeric(b)) %>%
@@ -26,6 +27,7 @@ life.history<- read_csv("Fish Life History.csv", col_names = TRUE) %>%
   mutate(FB.Max=as.numeric(FB.Max)) %>%
   select(c(Genus_species, aLL, bLL, a, b, FB.Max)) 
 
+#load local species region list
 species.region <- read_csv("Species_list_All_regions.csv", col_names = TRUE)
 
 options(shiny.maxRequestSize = 30 * 1024^2)
